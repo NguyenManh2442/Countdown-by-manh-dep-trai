@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Countdown</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Kaushan+Script&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            background-image: url('tet.png');
+            background-size: cover;
+        }
+        .main{
+            position: absolute;
+            top: 55%;
+            width: 100%;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+        
+        #text1{
+            font-size: 42px;
+            color: 	#FBB117;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: -1px 0 #E42217, 0 1px #E42217,      1px 0 #E42217, 0 -1px #E42217;
+        }
+        #text2{
+            font-size: 60px;
+            color: #E42217;
+            margin-top: 70px;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: -1px 0 #FBB117, 0 1px #FBB117,      1px 0 #FBB117, 0 -1px #FBB117;
+        }
+        #clock{
+            display: flex;
+            width: 800px;
+            margin: 0 auto;
+        }
+        #clock div{
+            position: relative;
+            width: 100px;
+            padding: 20px;
+            margin: 0 35px;
+            color: #FFD700;
+        }
+        #clock div span{
+            display: block;
+            text-align: center;
+        }
+        #clock div span:nth-child(1){
+            font-size: 120px;
+            font-weight: 800;
+            font-family: 'Kaushan Script', cursive;
+            text-shadow: -1px 0 #E42217, 0 1px #E42217,      1px 0 #E42217, 0 -1px #E42217;
+        }
+        #clock div span:nth-child(2){
+            font-size: 50px;
+            font-weight: 400;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: -1px 0 #E42217, 0 1px #E42217,      1px 0 #E42217, 0 -1px #E42217;
+        }
+        #canvas{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <h1 id="text1">Sắp đến tết rồi!!! Chỉ còn...</h1>
+        <div id="clock"></div>
+        <h1 id="text2"> Chúc Mừng Năm Mới 2020</h1>
+    </div>
+    <canvas id="canvas">Canvas is not supported in your browser.</canvas>
+    <audio style="display:none" preload="auto" autoplay id="audio" controls source src="LienKhucNhacTetNhacXuan-VA-4748671.mp3">
+    </audio>
+<!-- ------------------------------------------------------------------------------ -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js">
+    </script>
+    <script src="countdown.js"></script>
+    <script type="text/javascript">
+    var audio = document.getElementById('audio');
+       audio.play();
+    document.addEventListener('click',function(){
+       audio.play();
+  });
+    $('#clock').countdown('2020/1/25', function(event){
+        var $this = $(this).html(event.strftime(''
+        +'<div><span>%D</span><span>Ngày</span></div>'
+        +'<div><span>%H</span><span>Giờ</span></div>'
+        +'<div><span>%M</span><span>Phút</span></div>'
+        +'<div><span>%S</span><span>Giây</span></div>'
+        ))
+    })
+    </script>
+    
+	<script type="text/javascript" src="jquery.fireworks.js"></script>
+	
+</body>
+</html>
